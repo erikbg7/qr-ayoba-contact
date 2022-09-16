@@ -45,12 +45,13 @@ class AyobaStub {
   }
 
   getContacts() {
-    var jsonContacts = '27833241313';
+    var jsonContacts = '+00123456789';
     return jsonContacts;
   }
 
   getMsisdn() {
-    var msisdn = '27833241313';
+    console.log('stubbed getMsisdn()');
+    var msisdn = '+00123456789';
     return msisdn;
   }
 
