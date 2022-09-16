@@ -26,7 +26,7 @@ const QrCodeVCard: React.FC<Props> = (props) => {
         bgColor={'#ffffff'}
         fgColor={'#000000'}
         imageSettings={{
-          src: 'https://developer.ayoba.me/_next/image?url=%2Fassets%2FLogo%2FAyobaFinalIcon.png&w=128&q=75',
+          src: './ayoba-qr-logo.webp',
           height: 64,
           width: 64,
           excavate: true,
@@ -34,10 +34,10 @@ const QrCodeVCard: React.FC<Props> = (props) => {
       />
       <footer className="my-4">
         <h1 id="user-nickname" className={clsx('text-gray-50 text-4xl font-semibold ')}>
-          {props.nickname}
+          {/*{props.nickname}*/}
         </h1>
-        <h2 id="msisdnText" className={clsx('text-gray-300 text-2xl')}>
-          {props.phone}
+        <h2 id="user-msisdn" className={clsx('text-gray-300 text-2xl')}>
+          {/*{props.phone}*/}
         </h2>
       </footer>
     </section>
