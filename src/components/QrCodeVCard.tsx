@@ -1,6 +1,5 @@
 import React from 'react';
 import { QRCodeSVG } from 'qrcode.react';
-import clsx from 'clsx';
 
 type Props = {
   nickname: string;
@@ -33,11 +32,11 @@ const QrCodeVCard: React.FC<Props> = (props) => {
         }}
       />
       <footer className="my-4">
-        <h1 id="user-nickname" className={clsx('text-gray-50 text-4xl font-semibold ')}>
-          {/*{props.nickname}*/}
+        <h1 id="user-nickname2" className="text-gray-50 text-4xl font-semibold">
+          {props.nickname}
         </h1>
-        <h2 id="user-msisdn" className={clsx('text-gray-300 text-2xl')}>
-          {/*{props.phone}*/}
+        <h2 id="user-msisdn2" className="text-gray-300 text-2xl">
+          {props.phone}
         </h2>
       </footer>
     </section>
