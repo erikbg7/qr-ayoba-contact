@@ -2,12 +2,14 @@ import React from 'react';
 import { QrCodeVCard } from './components/QrCodeVCard';
 import { QrCodeVCardSkeleton } from './components/QrCodeVCardSkeleton';
 
-// const handleMsisdn = () => {
-//   const ayobaApi = (window as any)?.Ayoba;
-//   const msisdn = ayobaApi?.getMsisdn?.();
-//   const nickname = ayobaApi?.getNickname?.();
-//   return { msisdn, nickname };
-// };
+const handlePaymentStart = () => {
+  (window as any)?.startPayment?.({
+    method: 'MoMo',
+    amount: 199,
+    currency: 'XAF',
+    description: 'Test Payment',
+  });
+};
 
 const App = () => {
   const [profile, setProfile] = React.useState({ nickname: '', phone: '' });
@@ -28,6 +30,10 @@ const App = () => {
       {!isLoading && <QrCodeVCard nickname={profile.nickname} phone={profile.phone} />}
       {isLoading && <QrCodeVCardSkeleton />}
       <p className="text-lg text-gray-400 mt-8 mb-20">Scan the QR code to add the contact</p>
+
+      <div>
+        <button onClick={handlePaymentStart}>Start Payment</button>
+      </div>
     </main>
   );
 };

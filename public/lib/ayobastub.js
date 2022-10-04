@@ -70,6 +70,10 @@ class AyobaStub {
     return selfJid;
   }
 
+  startPayment(method, amount, currency, description) {
+    console.log('Payment Started with', { method, amount, currency, description });
+  }
+
   triggerLocationChanged() {
     onLocationChanged(-26.185357775567436, 28.019023561909993);
   }

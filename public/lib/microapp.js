@@ -167,3 +167,14 @@ function onProfileChanged(nickname, avatarPath) {
   console.log('Event: profile changed, nickname: ' + nickname + ', avatar path: ' + avatarPath);
 }
 
+/*
+ * Starts a new payment attempt from the native app
+ *
+ * @param {string} method: payment method (e.g. "MoMo")
+ * @param {number} amount: amount of the transaction
+ * @param {string} currency: currency of the transaction (e.g. "XAF")
+ * @param {string} description: transaction description (optional)
+ */
+function startPayment({ method, amount, currency, description }) {
+  Ayoba.startPayment(method, amount, currency, description);
+}
