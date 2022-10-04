@@ -3,12 +3,14 @@ import { QrCodeVCard } from './components/QrCodeVCard';
 import { QrCodeVCardSkeleton } from './components/QrCodeVCardSkeleton';
 
 const handlePaymentStart = () => {
-  (window as any)?.startPayment?.({
-    method: 'MoMo',
-    amount: 199,
-    currency: 'XAF',
-    description: 'Test Payment',
-  });
+  const ayobaApi = (window as any)?.Ayoba;
+  ayobaApi.startPayment('MoMo', 100, 'XAF', 'Test payment');
+  // (window as any)?.startPayment?.({
+  //   method: 'MoMo',
+  //   amount: 199,
+  //   currency: 'XAF',
+  //   description: 'Test Payment',
+  // });
 };
 
 const App = () => {
@@ -32,7 +34,7 @@ const App = () => {
       <p className="text-lg text-gray-400 mt-8 mb-20">Scan the QR code to add the contact</p>
 
       <div>
-        <button onClick={handlePaymentStart}>Start Payment</button>
+        <button onClick={handlePaymentStart}>Start Payment 2</button>
       </div>
     </main>
   );
