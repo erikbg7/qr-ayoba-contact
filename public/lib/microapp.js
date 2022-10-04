@@ -167,6 +167,13 @@ function onProfileChanged(nickname, avatarPath) {
   console.log('Event: profile changed, nickname: ' + nickname + ', avatar path: ' + avatarPath);
 }
 
+// paymentMethodList is a list containing the enabled payment methods for the user
+function onPermissionsAccepted(paymentMethodList) {
+  console.log('\n\n 7777777777');
+  console.log('method list', { paymentMethodList });
+  console.log('\n\n 7777777777');
+}
+
 /*
  * Starts a new payment attempt from the native app
  *
