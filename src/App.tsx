@@ -1,24 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { QrCodeVCard } from './components/QrCodeVCard';
 import { QrCodeVCardSkeleton } from './components/QrCodeVCardSkeleton';
+import { useAyobaProfile } from 'ayoba-microapps-react/lib/hooks/useAyobaProfile';
 
 const App = () => {
-  const [profile, setProfile] = React.useState({ nickname: '', phone: '' });
-  const isLoading = !profile.nickname || !profile.phone;
+  const profile = useAyobaProfile();
+  const [showSkeleton, setShowSkeleton] = useState(true);
+  const { nickname = 'Unknown', msisdn = '' } = profile;
+  const isLoading = (!nickname && !msisdn) || showSkeleton;
 
-  React.useEffect(() => {
-    const timeoutID = setTimeout(() => {
-      const msisdn = document.getElementById('user-msisdn')?.innerText || '';
-      const nickname = document.getElementById('user-nickname')?.innerText || '';
-      setProfile({ nickname, phone: msisdn });
-    }, 500);
-
-    return () => clearTimeout(timeoutID);
-  });
+  useEffect(() => {
+    const id = setTimeout(() => setShowSkeleton(false), 600);
+    return () => clearTimeout(id);
+  }, []);
 
   return (
     <main className="flex flex-col justify-center items-center h-[100vh]">
-      {!isLoading && <QrCodeVCard nickname={profile.nickname} phone={profile.phone} />}
+      {!isLoading && <QrCodeVCard nickname={nickname} phone={msisdn} />}
       {isLoading && <QrCodeVCardSkeleton />}
       <p className="text-lg text-gray-400 mt-8 mb-20">Scan the QR code to add the contact</p>
     </main>

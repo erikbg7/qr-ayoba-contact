@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ayoba-microapps-react": "^1.0.5",
     "clsx": "^1.2.1",
     "prettier": "^2.7.1",
     "qrcode.react": "^3.1.0",
